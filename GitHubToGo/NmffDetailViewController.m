@@ -10,19 +10,19 @@
 
 @interface NmffDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
-- (void)configureView;
+@property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
+
 @end
 
 @implementation NmffDetailViewController
 
-#pragma mark - Managing the detail item
+#pragma mark - Managing the URL item
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
+- (void)setCellRepo:(NmffGitRepo *)newCellRepo {
+
+    _cellRepo = newCellRepo;
+    if (_cellRepo != newCellRepo) {
+        _cellRepo = newCellRepo;
         [self configureView];
     }
 
@@ -35,8 +35,12 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    if (self.cellRepo != nil) {
+
+        NSURL *detailURL = self.cellRepo.htmlURL;
+        self.title = self.cellRepo.name;
+
+  //      [_detailWebView loadRequest:[NSURLRequest requestWithURL:detailURL]];
     }
 }
 

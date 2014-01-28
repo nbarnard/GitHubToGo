@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NmffGitRepo.h"
 
 @interface NmffDetailViewController : UIViewController <UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) NmffGitRepo *cellRepo;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

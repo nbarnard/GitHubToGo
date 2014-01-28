@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NmffGitReposDataController : NSObject
+@interface NmffGitReposNetworkController : NSObject
 
--(NSArray *) getReposWithSearchString: (NSString *) searchString;
++ (NmffGitReposNetworkController*) shared;
+- (NSArray *) getReposWithSearchString: (NSString *) searchString;
 
 
 @end
