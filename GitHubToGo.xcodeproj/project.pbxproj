@@ -23,6 +23,8 @@
 		1120BA8218971465009612D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120BA5E18971464009612D3 /* UIKit.framework */; };
 		1120BA8A18971465009612D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1120BA8818971465009612D3 /* InfoPlist.strings */; };
 		1120BA8C18971465009612D3 /* GitHubToGoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1120BA8B18971465009612D3 /* GitHubToGoTests.m */; };
+		1120BA9818971806009612D3 /* NmffGitRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1120BA9718971806009612D3 /* NmffGitRepo.m */; };
+		1120BA9B189718F9009612D3 /* NmffGitReposDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1120BA9A189718F9009612D3 /* NmffGitReposDataController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		1120BA8718971465009612D3 /* GitHubToGoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitHubToGoTests-Info.plist"; sourceTree = "<group>"; };
 		1120BA8918971465009612D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1120BA8B18971465009612D3 /* GitHubToGoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitHubToGoTests.m; sourceTree = "<group>"; };
+		1120BA9618971806009612D3 /* NmffGitRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NmffGitRepo.h; sourceTree = "<group>"; };
+		1120BA9718971806009612D3 /* NmffGitRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NmffGitRepo.m; sourceTree = "<group>"; };
+		1120BA99189718F9009612D3 /* NmffGitReposDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NmffGitReposDataController.h; sourceTree = "<group>"; };
+		1120BA9A189718F9009612D3 /* NmffGitReposDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NmffGitReposDataController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111E4E12189732ED0089C1CB /* Data Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1120BA99189718F9009612D3 /* NmffGitReposDataController.h */,
+				1120BA9A189718F9009612D3 /* NmffGitReposDataController.m */,
+			);
+			name = "Data Controller";
+			sourceTree = "<group>";
+		};
 		1120BA4E18971464009612D3 = {
 			isa = PBXGroup;
 			children = (
@@ -117,10 +132,10 @@
 		1120BA6018971464009612D3 /* GitHubToGo */ = {
 			isa = PBXGroup;
 			children = (
-				1120BA6918971464009612D3 /* NmffAppDelegate.h */,
-				1120BA6A18971464009612D3 /* NmffAppDelegate.m */,
 				1120BA6C18971464009612D3 /* Main_iPhone.storyboard */,
 				1120BA6F18971464009612D3 /* Main_iPad.storyboard */,
+				111E4E12189732ED0089C1CB /* Data Controller */,
+				1120BA95189717E5009612D3 /* Model */,
 				1120BA7218971464009612D3 /* NmffMasterViewController.h */,
 				1120BA7318971464009612D3 /* NmffMasterViewController.m */,
 				1120BA7518971464009612D3 /* NmffDetailViewController.h */,
@@ -134,6 +149,8 @@
 		1120BA6118971464009612D3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1120BA6918971464009612D3 /* NmffAppDelegate.h */,
+				1120BA6A18971464009612D3 /* NmffAppDelegate.m */,
 				1120BA6218971464009612D3 /* GitHubToGo-Info.plist */,
 				1120BA6318971464009612D3 /* InfoPlist.strings */,
 				1120BA6618971464009612D3 /* main.m */,
@@ -158,6 +175,15 @@
 				1120BA8818971465009612D3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1120BA95189717E5009612D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1120BA9618971806009612D3 /* NmffGitRepo.h */,
+				1120BA9718971806009612D3 /* NmffGitRepo.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +289,8 @@
 				1120BA7418971464009612D3 /* NmffMasterViewController.m in Sources */,
 				1120BA7718971464009612D3 /* NmffDetailViewController.m in Sources */,
 				1120BA6B18971464009612D3 /* NmffAppDelegate.m in Sources */,
+				1120BA9818971806009612D3 /* NmffGitRepo.m in Sources */,
+				1120BA9B189718F9009612D3 /* NmffGitReposDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +509,7 @@
 				1120BA9118971465009612D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1120BA9218971465009612D3 /* Build configuration list for PBXNativeTarget "GitHubToGoTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +518,7 @@
 				1120BA9418971465009612D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
