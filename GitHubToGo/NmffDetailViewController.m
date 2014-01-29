@@ -11,7 +11,7 @@
 @interface NmffDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
-
+- (void)configureView;
 @end
 
 @implementation NmffDetailViewController
@@ -19,9 +19,7 @@
 #pragma mark - Managing the URL item
 
 - (void)setCellRepo:(NmffGitRepo *)newCellRepo {
-
-    _cellRepo = newCellRepo;
-    if (_cellRepo != newCellRepo) {
+   if (_cellRepo != newCellRepo) {
         _cellRepo = newCellRepo;
         [self configureView];
     }
@@ -35,12 +33,11 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.cellRepo != nil) {
-
+    if (self.cellRepo) {
         NSURL *detailURL = self.cellRepo.htmlURL;
         self.title = self.cellRepo.name;
-
-  //      [_detailWebView loadRequest:[NSURLRequest requestWithURL:detailURL]];
+        NSLog(@"%@", detailURL);
+        [_detailWebView loadRequest:[NSURLRequest requestWithURL:detailURL]];
     }
 }
 
@@ -61,7 +58,7 @@
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
+    barButtonItem.title = NSLocalizedString(@"Find Repos", @"Find Repos");
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }

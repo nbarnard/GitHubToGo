@@ -35,9 +35,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    _dataController = [[NmffGitRepoDataController alloc] initWithSearchString:@"Moo"];
+    self.detailViewController = (NmffDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+
+//    _dataController = [[NmffGitRepoDataController alloc] initWithSearchString:@"Moo"];
 
 
 }
@@ -92,7 +93,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-
+        NmffGitRepo *currentRepo = [_dataController.repos objectAtIndex:indexPath.row];
+        self.detailViewController.cellRepo = currentRepo;
     }
 }
 
@@ -101,9 +103,15 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NmffGitRepo *currentRepo = [_dataController.repos objectAtIndex:indexPath.row];
-
         [[segue destinationViewController] setCellRepo:currentRepo];
     }
+}
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSString *searchText = [searchBar.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    _dataController = [[NmffGitRepoDataController alloc] initWithSearchString:searchText];
+    [[self tableView] reloadData];
 }
 
 @end

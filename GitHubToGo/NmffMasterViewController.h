@@ -10,8 +10,11 @@
 
 @class NmffDetailViewController;
 
-@interface NmffMasterViewController : UITableViewController
+@interface NmffMasterViewController : UITableViewController <UISearchBarDelegate>
 
 @property (strong, nonatomic) NmffDetailViewController *detailViewController;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+
 
 @end
