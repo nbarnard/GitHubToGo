@@ -34,9 +34,36 @@
     // Update the user interface for the detail item.
 
     if (self.cellRepo) {
+        NSURL *blankURL = [NSURL URLWithString:@"about:blank"];
+        [_detailWebView loadRequest:[NSURLRequest requestWithURL:blankURL]];
+
         NSURL *detailURL = self.cellRepo.htmlURL;
         self.title = self.cellRepo.name;
+//        UIActivityIndicatorView *waiting = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+//
+//        [waiting startAnimating];
+//        [waiting setColor:[UIColor blueColor]];
+//
+//        waiting.frame = CGRectMake((_detailWebView.bounds.size.width / 2) - (waiting.frame.size.width / 2),
+//                                   (_detailWebView.bounds.size.height / 2) - (waiting.frame.size.height / 2),
+//                                   waiting.frame.size.width,
+//                                   waiting.frame.size.height);
+//
+////        [_detailWebView addSubview:waiting];
+//        NSLog(@"%@", [self class]);
+//        [[self view] addSubview:waiting];
+//
+//        //.origin = _detailWebView.frame.origin;
+//        NSLog(@"%f",waiting.frame.origin.x);
+//        NSLog(@"%f",waiting.frame.origin.y);
+//        NSLog(@"%f",waiting.frame.size.height);
+//        NSLog(@"%f",waiting.frame.size.width);
+
+
         [_detailWebView loadRequest:[NSURLRequest requestWithURL:detailURL]];
+//
+//        [waiting stopAnimating];
+//        [waiting removeFromSuperview];
     }
 }
 

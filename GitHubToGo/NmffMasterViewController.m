@@ -37,10 +37,6 @@
 	// Do any additional setup after loading the view, typically from a nib.
 
     self.detailViewController = (NmffDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-
-//    _dataController = [[NmffGitRepoDataController alloc] initWithSearchString:@"Moo"];
-
-
 }
 
 
@@ -109,6 +105,7 @@
 
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
     NSString *searchText = [searchBar.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     _dataController = [[NmffGitRepoDataController alloc] initWithSearchString:searchText];
     [[self tableView] reloadData];
