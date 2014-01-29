@@ -36,7 +36,6 @@
     if (self.cellRepo) {
         NSURL *detailURL = self.cellRepo.htmlURL;
         self.title = self.cellRepo.name;
-        NSLog(@"%@", detailURL);
         [_detailWebView loadRequest:[NSURLRequest requestWithURL:detailURL]];
     }
 }
